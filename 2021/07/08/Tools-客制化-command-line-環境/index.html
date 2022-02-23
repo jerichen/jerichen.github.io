@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="User Story我是一個開發者，我想要一個客制化的 command line 環境，加快開發速度.  MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定Quick StartInstall HomebrewHomebrew 網址 1# &#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Tools]@客制化 command line 環境">
+<meta property="og:url" content="https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/index.html">
+<meta property="og:site_name" content="JeriChen@">
+<meta property="og:description" content="User Story我是一個開發者，我想要一個客制化的 command line 環境，加快開發速度.  MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定Quick StartInstall HomebrewHomebrew 網址 1# &#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jerichen.github.io/images/article/draculatheme.png">
+<meta property="og:image" content="https://jerichen.github.io/images/article/nerd-fonts.png">
+<meta property="article:published_time" content="2021-07-08T03:04:51.000Z">
+<meta property="article:modified_time" content="2022-02-23T14:58:44.067Z">
+<meta property="article:author" content="Jeri Chen">
+<meta property="article:tag" content="Tools">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jerichen.github.io/images/article/draculatheme.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/customize/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/customize/android-chrome-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/customize/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[Tools]@客制化 command line 環境</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/07/07/Laravel-%E7%AC%AC%E4%B8%80%E5%80%8Bpackage/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&text=[Tools]@客制化 command line 環境"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&is_video=false&description=[Tools]@客制化 command line 環境"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Tools]@客制化 command line 環境&body=Check out this article: https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&name=[Tools]@客制化 command line 環境&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Story"><span class="toc-number">1.</span> <span class="toc-text">User Story</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-Draculatheme-iTerm-2-Oh-My-Zsh-Nerd-Fonts-Powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.1.</span> <span class="toc-text">MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Homebrew"><span class="toc-number">2.1.</span> <span class="toc-text">Install Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Git"><span class="toc-number">2.2.</span> <span class="toc-text">Install Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-iterm2"><span class="toc-number">2.3.</span> <span class="toc-text">Install iterm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instll-Draculatheme-for-iterm2"><span class="toc-number">2.4.</span> <span class="toc-text">Instll Draculatheme for iterm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View-the-installed-shells-of-the-system"><span class="toc-number">2.5.</span> <span class="toc-text">View the installed shells of the system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-zsh-completions"><span class="toc-number">2.6.</span> <span class="toc-text">Install zsh zsh-completions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Shell-default-use-zsh"><span class="toc-number">2.7.</span> <span class="toc-text">Change Shell default use zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-oh-my-zsh-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.8.</span> <span class="toc-text">Install oh-my-zsh 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Powerlevel10K-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.9.</span> <span class="toc-text">Install Powerlevel10K 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-autosuggestions"><span class="toc-number">2.10.</span> <span class="toc-text">Install zsh-autosuggestions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-syntax-highlighting"><span class="toc-number">2.11.</span> <span class="toc-text">Install zsh-syntax-highlighting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-zsh"><span class="toc-number">2.12.</span> <span class="toc-text">Change .zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Fonts-Nerd-Fonts-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.13.</span> <span class="toc-text">Other Fonts Nerd-Fonts 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-bashrc"><span class="toc-number">2.14.</span> <span class="toc-text">Change .bashrc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-vimrc"><span class="toc-number">2.15.</span> <span class="toc-text">Change .vimrc</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [Tools]@客制化 command line 環境
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">JeriChen@</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-07-08T03:04:51.000Z" itemprop="datePublished">2021-07-08</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Tools/" rel="tag">Tools</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="User-Story"><a href="#User-Story" class="headerlink" title="User Story"></a>User Story</h2><p>我是一個開發者，我想要一個客制化的 command line 環境，加快開發速度. </p>
+<h3 id="MacOS-Draculatheme-iTerm-2-Oh-My-Zsh-Nerd-Fonts-Powerlevel10k-設定"><a href="#MacOS-Draculatheme-iTerm-2-Oh-My-Zsh-Nerd-Fonts-Powerlevel10k-設定" class="headerlink" title="MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定"></a>MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定</h3><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install-Homebrew"><a href="#Install-Homebrew" class="headerlink" title="Install Homebrew"></a>Install Homebrew</h3><p><a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">Homebrew 網址</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># brew install git</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-iterm2"><a href="#Install-iterm2" class="headerlink" title="Install iterm2"></a>Install iterm2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># brew install --cask iterm2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Instll-Draculatheme-for-iterm2"><a href="#Instll-Draculatheme-for-iterm2" class="headerlink" title="Instll Draculatheme for iterm2"></a>Instll Draculatheme for iterm2</h3><p><a target="_blank" rel="noopener" href="https://draculatheme.com/iterm/">Draculatheme 網址</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/dracula/iterm.git</span><br></pre></td></tr></table></figure>
+<p><strong>Activating theme</strong></p>
+<ul>
+<li>iTerm2 &gt; Preferences &gt; Profiles &gt; Colors Tab</li>
+<li>Open the Color Presets… drop-down in the bottom right corner</li>
+<li>Select Import… from the list</li>
+<li>Select the Dracula.itermcolors file</li>
+<li>Select the Dracula from Color Presets…<img src="/images/article/draculatheme.png" class="[class names]"></li>
+</ul>
+<h3 id="View-the-installed-shells-of-the-system"><a href="#View-the-installed-shells-of-the-system" class="headerlink" title="View the installed shells of the system"></a>View the installed shells of the system</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/shells</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-zsh-zsh-completions"><a href="#Install-zsh-zsh-completions" class="headerlink" title="Install zsh zsh-completions"></a>Install zsh zsh-completions</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># brew install zsh zsh-completions</span><br></pre></td></tr></table></figure>
+
+<h3 id="Change-Shell-default-use-zsh"><a href="#Change-Shell-default-use-zsh" class="headerlink" title="Change Shell default use zsh"></a>Change Shell default use zsh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chsh -s /bin/zsh </span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-oh-my-zsh-網址"><a href="#Install-oh-my-zsh-網址" class="headerlink" title="Install oh-my-zsh 網址"></a>Install <a target="_blank" rel="noopener" href="https://ohmyz.sh/">oh-my-zsh 網址</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-Powerlevel10K-網址"><a href="#Install-Powerlevel10K-網址" class="headerlink" title="Install Powerlevel10K 網址"></a>Install <a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">Powerlevel10K 網址</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-zsh-autosuggestions"><a href="#Install-zsh-autosuggestions" class="headerlink" title="Install zsh-autosuggestions"></a>Install <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-zsh-syntax-highlighting"><a href="#Install-zsh-syntax-highlighting" class="headerlink" title="Install zsh-syntax-highlighting"></a>Install <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<h3 id="Change-zsh"><a href="#Change-zsh" class="headerlink" title="Change .zsh"></a>Change .zsh</h3><script src="//gist.github.com/5658243a60af5dd067b43ce427b74646.js?file=powerlevel10k-zsh.md"></script>
+
+<h3 id="Other-Fonts-Nerd-Fonts-網址"><a href="#Other-Fonts-Nerd-Fonts-網址" class="headerlink" title="Other Fonts Nerd-Fonts 網址"></a>Other Fonts <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts#font-installation">Nerd-Fonts 網址</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># brew tap homebrew/cask-fonts</span><br><span class="line"># brew cask install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+<p><strong>Activating font</strong></p>
+<ul>
+<li>iTerm2 &gt; Preferences &gt; Profiles &gt; Text</li>
+<li>Font Open the Change Font… drop-down in Hack Regular Nerd Font Complete</li>
+<li>Select Use a different font for non-ASCII text</li>
+<li>Non-ASCII Font Open the Change Font… drop-down in Hack Regular Nerd Font Complete<img src="/images/article/nerd-fonts.png" class="[class names]"></li>
+</ul>
+<h3 id="Change-bashrc"><a href="#Change-bashrc" class="headerlink" title="Change .bashrc"></a>Change .bashrc</h3><script src="//gist.github.com/ce0f41db3ca7676cd4c4103e473c4c8b.js?file=bashrc.md"></script>
+
+<h3 id="Change-vimrc"><a href="#Change-vimrc" class="headerlink" title="Change .vimrc"></a>Change .vimrc</h3><script src="//gist.github.com/ce0f41db3ca7676cd4c4103e473c4c8b.js?file=vimrc.md"></script>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Story"><span class="toc-number">1.</span> <span class="toc-text">User Story</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-Draculatheme-iTerm-2-Oh-My-Zsh-Nerd-Fonts-Powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.1.</span> <span class="toc-text">MacOS + Draculatheme + iTerm 2 + Oh My Zsh + Nerd-Fonts + Powerlevel10k 設定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Homebrew"><span class="toc-number">2.1.</span> <span class="toc-text">Install Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Git"><span class="toc-number">2.2.</span> <span class="toc-text">Install Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-iterm2"><span class="toc-number">2.3.</span> <span class="toc-text">Install iterm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instll-Draculatheme-for-iterm2"><span class="toc-number">2.4.</span> <span class="toc-text">Instll Draculatheme for iterm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View-the-installed-shells-of-the-system"><span class="toc-number">2.5.</span> <span class="toc-text">View the installed shells of the system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-zsh-completions"><span class="toc-number">2.6.</span> <span class="toc-text">Install zsh zsh-completions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Shell-default-use-zsh"><span class="toc-number">2.7.</span> <span class="toc-text">Change Shell default use zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-oh-my-zsh-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.8.</span> <span class="toc-text">Install oh-my-zsh 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Powerlevel10K-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.9.</span> <span class="toc-text">Install Powerlevel10K 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-autosuggestions"><span class="toc-number">2.10.</span> <span class="toc-text">Install zsh-autosuggestions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-zsh-syntax-highlighting"><span class="toc-number">2.11.</span> <span class="toc-text">Install zsh-syntax-highlighting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-zsh"><span class="toc-number">2.12.</span> <span class="toc-text">Change .zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Fonts-Nerd-Fonts-%E7%B6%B2%E5%9D%80"><span class="toc-number">2.13.</span> <span class="toc-text">Other Fonts Nerd-Fonts 網址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-bashrc"><span class="toc-number">2.14.</span> <span class="toc-text">Change .bashrc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-vimrc"><span class="toc-number">2.15.</span> <span class="toc-text">Change .vimrc</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&text=[Tools]@客制化 command line 環境"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&is_video=false&description=[Tools]@客制化 command line 環境"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Tools]@客制化 command line 環境&body=Check out this article: https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&title=[Tools]@客制化 command line 環境"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://jerichen.github.io/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/&name=[Tools]@客制化 command line 環境&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2022 Jeri Chen
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

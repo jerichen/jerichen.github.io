@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="User Story為什麼要使用設計模式?為了有效於溝通，數學公司套用在不同的數學問題上 .  物件道向設計原則 S.O.L.I.D SRP: Single Responsibility Principle (單一職責原則)  讓類別只有一個職責，不要貪方便讓類別擁有很多責任   OCP: Open Closed Principle (開放封閉原則)  擴展是開放的，修改是封閉的，但不要過度用繼承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[PHP]@設計模式筆記">
+<meta property="og:url" content="https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/index.html">
+<meta property="og:site_name" content="JeriChen@">
+<meta property="og:description" content="User Story為什麼要使用設計模式?為了有效於溝通，數學公司套用在不同的數學問題上 .  物件道向設計原則 S.O.L.I.D SRP: Single Responsibility Principle (單一職責原則)  讓類別只有一個職責，不要貪方便讓類別擁有很多責任   OCP: Open Closed Principle (開放封閉原則)  擴展是開放的，修改是封閉的，但不要過度用繼承">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-07-11T16:30:03.000Z">
+<meta property="article:modified_time" content="2022-02-23T14:58:47.005Z">
+<meta property="article:author" content="Jeri Chen">
+<meta property="article:tag" content="Laravel">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/customize/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/customize/android-chrome-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/customize/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[PHP]@設計模式筆記</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/07/25/Laravel-%E7%A8%8B%E5%BC%8F%E7%B7%A8%E5%AF%AB%E8%A6%8F%E7%AF%84/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/07/08/Tools-%E5%AE%A2%E5%88%B6%E5%8C%96-command-line-%E7%92%B0%E5%A2%83/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&text=[PHP]@設計模式筆記"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&is_video=false&description=[PHP]@設計模式筆記"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[PHP]@設計模式筆記&body=Check out this article: https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&name=[PHP]@設計模式筆記&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Story"><span class="toc-number">1.</span> <span class="toc-text">User Story</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E4%BB%B6%E9%81%93%E5%90%91%E8%A8%AD%E8%A8%88%E5%8E%9F%E5%89%87-S-O-L-I-D"><span class="toc-number">2.</span> <span class="toc-text">物件道向設計原則 S.O.L.I.D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">PHP 設計模式</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [PHP]@設計模式筆記
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">JeriChen@</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-07-11T16:30:03.000Z" itemprop="datePublished">2021-07-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Laravel/" rel="tag">Laravel</a>, <a class="tag-link-link" href="/tags/PHP/" rel="tag">PHP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="User-Story"><a href="#User-Story" class="headerlink" title="User Story"></a>User Story</h2><p>為什麼要使用設計模式?<br>為了有效於溝通，數學公司套用在不同的數學問題上 .</p>
+<hr>
+<h2 id="物件道向設計原則-S-O-L-I-D"><a href="#物件道向設計原則-S-O-L-I-D" class="headerlink" title="物件道向設計原則 S.O.L.I.D"></a>物件道向設計原則 S.O.L.I.D</h2><ul>
+<li><p>SRP: Single Responsibility Principle (單一職責原則)</p>
+<blockquote>
+<p>讓類別只有一個職責，不要貪方便讓類別擁有很多責任</p>
+</blockquote>
+</li>
+<li><p>OCP: Open Closed Principle (開放封閉原則)</p>
+<blockquote>
+<p>擴展是開放的，修改是封閉的，但不要過度用繼承的方式</p>
+<blockquote>
+<p>Ex: 一個網站的註冊類別，是有不同方式註冊，可抽換成 Interface</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>LSP: Liskov Substitution Principle (里氏替換原則)</p>
+<blockquote>
+<p>Interface 契約不可被破壞</p>
+</blockquote>
+</li>
+<li><p>LKP: Least Knowledge Principle (最小知識原則)</p>
+<blockquote>
+<p>減少耦合度，多一點封裝</p>
+</blockquote>
+</li>
+<li><p>ISP: Interface Segregation Principle (介面隔離原則)</p>
+<blockquote>
+<p>把 Interface 當成是可以做什麼，而不是是一個什麼</p>
+</blockquote>
+</li>
+<li><p>DIP: Dependency Inversion Principle (依賴反轉原則)</p>
+<blockquote>
+<p>不要把程式寫在某程實作上.</p>
+<blockquote>
+<p>Ex: 一個網站的註冊 &#x2F; 登入有許多種方式(Facebook、Google、Line等)，把互動的部份交給抽象類別或介面.</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="PHP-設計模式"><a href="#PHP-設計模式" class="headerlink" title="PHP 設計模式"></a>PHP 設計模式</h2><ul>
+<li><p>策略模式: 把行為抽換</p>
+<blockquote>
+<p>出現 switch case 時可定義 Interface</p>
+</blockquote>
+</li>
+<li><p>簡單工廠模式: 代替new操作的一種模式</p>
+<blockquote>
+<p>想要更改所例項化的類名等，則只需更改該工廠方法內容即可，不需逐一尋找程式碼中具體例項化的地方（new處）修改了，減少了耦合</p>
+</blockquote>
+</li>
+<li><p>轉接器模式: 把不相容的 Api 封裝</p>
+<blockquote>
+<p>Ex: 輸出報表，格式多元化(Excel、PDF)</p>
+</blockquote>
+</li>
+<li><p>裝飾者模式: 外開公開 Api 的方法</p>
+<blockquote>
+<p>不要在原本的物件加上方法，而是在原有的方法加入額外行為</p>
+</blockquote>
+</li>
+<li><p>責任鍊模式: 每一關都有它的責任</p>
+<blockquote>
+<p>出現 if….elseif…..else…….太多條件時，就可以把 if…..else 物件化</p>
+</blockquote>
+</li>
+<li><p>複合模式: 用很多模式組合起來的</p>
+<blockquote>
+<p>MVC(model-view-controller)，就是最佳代表</p>
+</blockquote>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Story"><span class="toc-number">1.</span> <span class="toc-text">User Story</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E4%BB%B6%E9%81%93%E5%90%91%E8%A8%AD%E8%A8%88%E5%8E%9F%E5%89%87-S-O-L-I-D"><span class="toc-number">2.</span> <span class="toc-text">物件道向設計原則 S.O.L.I.D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">PHP 設計模式</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&text=[PHP]@設計模式筆記"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&is_video=false&description=[PHP]@設計模式筆記"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[PHP]@設計模式筆記&body=Check out this article: https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&title=[PHP]@設計模式筆記"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://jerichen.github.io/2021/07/11/PHP-%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E7%AD%86%E8%A8%98/&name=[PHP]@設計模式筆記&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2022 Jeri Chen
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首頁</a></li>
+         
+          <li><a href="/about/">關於我</a></li>
+         
+          <li><a href="/archives/">歸檔</a></li>
+         
+          <li><a href="/tags/">標籤</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
